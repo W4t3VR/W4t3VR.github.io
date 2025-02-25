@@ -112,7 +112,7 @@ body {
     background: transparent;
     font-size: 20px;
     border: 2px dashed;
-    border-color: var(--accent-color);
+    border-color: var(--accent-color-2);
     border-width: 3px;
     box-sizing: border-box;
     outline: none;
