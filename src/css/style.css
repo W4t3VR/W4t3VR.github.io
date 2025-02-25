@@ -104,6 +104,17 @@ body {
   margin: 1em 0;
 }
 
+#search {
+  input {
+    width: 100%;
+    padding: 10px 10px 12px;
+    background: transparent;
+    font-size: 22px;
+    border: 2px dashed;
+    outline: none;
+  }
+}
+
 .header {
   color: var(--accent-color);
   font-size: 1.6em;
