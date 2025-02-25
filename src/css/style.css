@@ -105,6 +105,7 @@ body {
 }
 
 #search {
+  margin-bottom: 20px;
   input {
     width: 100%;
     padding: 10px 10px 12px;
