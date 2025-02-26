@@ -45,7 +45,7 @@ body {
 #image {
   opacity: 0;
   transition: opacity 2s ease-in-out;
-  animation: loading 2s 
+  animation: loading 2s  ease-in-out;
 }
 @keyframes loading {
   0%   {left: 200px; top: 200px;}
