@@ -105,7 +105,7 @@ body {
 }
 
 #search {
-  position: absolute;
+  position: relative;
   margin-bottom: 20px;
   input {
     width: 100%;
