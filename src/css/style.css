@@ -41,16 +41,26 @@ body {
   align-items: center;
 }
 
-#text,
+//#text,
+//#image {
+//  opacity: 0;
+//  transition: opacity 0.2s ease-in-out;
+//}
 #image {
-  opacity: 0;
-  //transition: opacity 2s ease-in-out;
-  animation: loading 2s  ease-in-out;
+    animation: imgAnimation 2s forwards;
 }
-@keyframes loading {
-  0%   {left: 200px; top: 200px;}
-  50%  {left: 200px; top: 0px;}
-  100% {left: 0px; top: 0px;}
+@keyframes imgAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0) scale(0.6);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
 }
 
 #text.loaded,
