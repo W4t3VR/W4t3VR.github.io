@@ -44,7 +44,7 @@ body {
 #text,
 #image {
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  //transition: opacity 2s ease-in-out;
   animation: loading 2s  ease-in-out;
 }
 @keyframes loading {
