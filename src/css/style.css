@@ -47,12 +47,12 @@ body {
 //  transition: opacity 0.2s ease-in-out;
 //}
 #image {
-    animation: imgAnimation 2s forwards;
+    animation: imgAnimation 2s;
 }
 @keyframes imgAnimation {
     0% {
         opacity: 0;
-        bottom: 0%;
+        bottom: -100px;
     }
     50% {
         opacity: 0.5;
