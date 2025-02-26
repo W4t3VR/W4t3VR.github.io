@@ -44,7 +44,13 @@ body {
 #text,
 #image {
   opacity: 0;
-  transition: opacity 0.2s ease-in;
+  transition: opacity 2s ease-in-out;
+  animation: loading 2s 
+}
+@keyframes loading {
+  0%   {left: 200px; top: 200px;}
+  50%  {left: 200px; top: 0px;}
+  100% {left: 0px; top: 0px;}
 }
 
 #text.loaded,
