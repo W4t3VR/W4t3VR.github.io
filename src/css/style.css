@@ -105,10 +105,11 @@ body {
 }
 
 #search {
+  position: absolute;
   margin-bottom: 20px;
   input {
     width: 100%;
-    padding: 10px 10px 12px;
+    padding: 10px 10px 13px 40px;
     background: transparent;
     font-size: 20px;
     border: 2px dashed;
@@ -116,6 +117,17 @@ body {
     border-width: 3px;
     box-sizing: border-box;
     outline: none;
+  }
+  i {
+    position: absolute;
+    display: block;
+    transform: translate(0, -50%);
+    top: 48%;
+    pointer-events: none;
+    font-style: normal;
+    font-size: 22px;
+    margin-left: 10px;
+    color: var(--text-color);
   }
 }
 
