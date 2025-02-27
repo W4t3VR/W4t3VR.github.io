@@ -41,27 +41,10 @@ body {
   align-items: center;
 }
 
-//#text,
-//#image {
-//  opacity: 0;
-//  transition: opacity 0.2s ease-in-out;
-//}
+#text,
 #image {
-    animation: imgAnimation 2s;
-}
-@keyframes imgAnimation {
-    0% {
-        opacity: 0;
-        bottom: -100px;
-    }
-    50% {
-        opacity: 0.5;
-        bottom: 50%;
-    }
-    100% {
-	opacity: 1;
-        left: 20%;
-    }
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
 }
 
 #text.loaded,
