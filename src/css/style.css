@@ -23,8 +23,8 @@ html {
   justify-content: center;
   height: 100svh;
   background-color: var(--background-color);
-  background-image: url("../bgs/background.png");
-  background-repeat: repeat;
+  /*background-image: url("../bgs/background.png");
+  background-repeat: repeat;*/
   overflow-x: clip;
 }
 
