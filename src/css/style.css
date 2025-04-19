@@ -23,7 +23,7 @@ html {
   justify-content: center;
   height: 100svh;
   background-color: var(--background-color);
-  background-image: url("../bgs/topography.svg");
+  /*background-image: url("../bgs/topography.svg");*/
   overflow-x: clip;
 }
 
