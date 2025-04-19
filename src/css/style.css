@@ -41,12 +41,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-canvas { 
-  opacity: 0;
-  visibility: hidden;
-  width: 1px;
-  height: 1px;
-}
 
 #text,
 #image {
