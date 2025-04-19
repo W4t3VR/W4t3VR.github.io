@@ -23,7 +23,8 @@ html {
   justify-content: center;
   height: 100svh;
   background-color: var(--background-color);
-  /*background-image: url("../bgs/topography.svg");*/
+  background-image: url("../bgs/background.png");
+  background-repeat: repeat;
   overflow-x: clip;
 }
 
@@ -39,6 +40,12 @@ body {
     monospace;
   justify-content: center;
   align-items: center;
+}
+canvas { 
+  opacity: 0;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
 }
 
 #text,
