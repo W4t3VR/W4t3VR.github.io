@@ -41,7 +41,16 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+#nokey {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: block;
+  pointer-events: none; /* So it doesn't block clicks */
+}
 #text,
 #image {
   opacity: 0;
