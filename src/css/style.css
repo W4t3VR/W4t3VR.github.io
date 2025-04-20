@@ -49,9 +49,9 @@ body {
   height: 100vh;
   z-index: -1;
   display: block;
-  pointer-events: none; /* So it doesn't block clicks */
+  pointer-events: none; 
 }
-#text,
+/*#text,
 #image {
   opacity: 0;
   transition: opacity 0.2s ease-in;
@@ -65,7 +65,7 @@ body {
 #text.loaded * {
   transition: color 0.2s ease-in-out;
 }
-
+*/
 #carouselImage {
   height: 550px;
   aspect-ratio: 9 / 16;
