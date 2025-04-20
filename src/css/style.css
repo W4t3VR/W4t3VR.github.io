@@ -43,7 +43,7 @@ body {
   position: fixed;
   z-index: -1;
 }
-#text,
+/*#text,
 #image {
   opacity: 0;
   transition: opacity 0.2s ease-in;
@@ -56,8 +56,11 @@ body {
 
 #text.loaded * {
   transition: color 0.2s ease-in-out;
+}*/
+#text,
+#image {
+  animation: onload 1.0s;
 }
-
 #carouselImage {
   height: 550px;
   aspect-ratio: 9 / 16;
