@@ -42,21 +42,10 @@ body {
 #nokey {
   position: fixed;
   z-index: -1;
-}
-/*#text,
-#image {
-  opacity: 0;
-  transition: opacity 0.2s ease-in;
+  width: 1px;
+  height: 1px;
 }
 
-#text.loaded,
-#image.loaded {
-  opacity: 1;
-}
-
-#text.loaded * {
-  transition: color 0.2s ease-in-out;
-}*/
 #text,
 #image {
   animation: onload 1.0s;
