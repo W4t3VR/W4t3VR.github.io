@@ -5,7 +5,7 @@ var canvas = document.getElementById('nokey'),
    ctx = canvas.getContext('2d');
 
 // console.log(typeof can_w);
-var BALL_NUM = 40
+var BALL_NUM = 60
 
 var ball = {
       x: 0,
