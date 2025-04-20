@@ -22,9 +22,7 @@ html {
   align-items: center;
   justify-content: center;
   height: 100svh;
-  background-color: var(--background-color);
-  /*background-image: url("../bgs/background.png");
-  background-repeat: repeat;*/
+  background-color: var(--background-color); 
   overflow-x: clip;
 }
 
@@ -45,7 +43,7 @@ body {
   position: fixed;
   z-index: -1;
 }
-/*#text,
+#text,
 #image {
   opacity: 0;
   transition: opacity 0.2s ease-in;
@@ -59,7 +57,7 @@ body {
 #text.loaded * {
   transition: color 0.2s ease-in-out;
 }
-*/
+
 #carouselImage {
   height: 550px;
   aspect-ratio: 9 / 16;
@@ -170,4 +168,16 @@ a:hover {
 
 #image {
 	padding-right: 1em;
+}
+
+/* Animation */
+@keyframes onload {
+    0% { transform: scale(0.1); opacity: 0; filter: blur(10px); }
+    50% { transform: scale(1.1); opacity: 0.5; filter: blur(5px); }
+    100% { transform: scale(1); opacity: 1; filter: blur(0px); }
+}
+
+@keyframes fade {
+    0% { color: var(--grau); }
+    100% { color: var(--weiß); }
 }
