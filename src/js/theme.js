@@ -3,7 +3,7 @@ let currentIndex =
   document.currentScript.getAttribute("currentIndex");
 currentIndex = parseInt(currentIndex);
 
-const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp"];
+const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp", "cover5.webp"];
 const colorSets = [
   {
     "--text-color": "#c0caf5",
