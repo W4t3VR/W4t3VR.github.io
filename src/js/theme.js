@@ -28,9 +28,9 @@ const colorSets = [
   },
   {
     "--text-color": "#EAEFFD",
-    "--hover-color": "#FDB6A7",
-    "--accent-color": "#556BFF",
-		"--accent-color-2": "#FA87A6",
+    "--hover-color": "#266BA5",
+    "--accent-color": "#4775e4",
+		"--accent-color-2": "#99BCD3",
     "--background-color": "#16191F",
   },
 ];
