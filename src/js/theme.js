@@ -3,30 +3,9 @@ let currentIndex =
   document.currentScript.getAttribute("currentIndex");
 currentIndex = parseInt(currentIndex);
 
-const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp", "cover5.webp", "cover6.webp",  "cover7.webp"];
+const images = ["cover4.webp", "cover5.webp", "cover6.webp",  "cover7.webp"];
 const colorSets = [
   {
-    "--text-color": "#c0caf5",
-    "--hover-color": "#bb9af7",
-    "--accent-color": "#7aa2f7",
-    "--accent-color-2": "#f7768e",
-    "--background-color": "#1a1b26",
-  },
-  {
-    "--text-color": "#9fadc6",
-    "--hover-color": "#9B5856",
-    "--accent-color": "#28725A",
-    "--accent-color-2": "#D2C7CB",
-    "--background-color": "#15191d",
-  },
-  {
-    "--text-color": "#c0caf5",
-    "--hover-color": "#e0af68",
-    "--accent-color": "#7aa2f7",
-    "--accent-color-2": "#bb9af7",
-    "--background-color": "#1a1b26",
-  },
-  {
     "--text-color": "#EAEFFD",
     "--hover-color": "#266BA5",
     "--accent-color": "#4775e4", 
@@ -34,25 +13,25 @@ const colorSets = [
     "--background-color": "#16191F",
   },
   {
-    "--text-color": "#EAEFFD",
-    "--hover-color": "#266BA5",
-    "--accent-color": "#4775e4", 
-    "--accent-color-2": "#99BCD3",
-    "--background-color": "#16191F",
+    "--text-color": "#fef5f4",
+    "--hover-color": "#3f3d47",
+    "--accent-color": "#936d70", 
+    "--accent-color-2": "#6976b3",
+    "--background-color": "#000100",
   },
 	{
-    "--text-color": "#EAEFFD",
-    "--hover-color": "#266BA5",
-    "--accent-color": "#4775e4", 
-    "--accent-color-2": "#99BCD3",
-    "--background-color": "#16191F",
+    "--text-color": "#fafefd",
+    "--hover-color": "#a862d2",
+    "--accent-color": "#c6a2e7", 
+    "--accent-color-2": "#a337b9",
+    "--background-color": "#1b1b28",
   },
 	{
-    "--text-color": "#EAEFFD",
-    "--hover-color": "#266BA5",
-    "--accent-color": "#4775e4", 
+    "--text-color": "#f3ebf2",
+    "--hover-color": "#d19570",
+    "--accent-color": "#717adf", 
     "--accent-color-2": "#99BCD3",
-    "--background-color": "#16191F",
+    "--background-color": "#070922",
   },
 ];
 
