@@ -3,7 +3,7 @@ let currentIndex =
   document.currentScript.getAttribute("currentIndex");
 currentIndex = parseInt(currentIndex);
 
-const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp"];
+const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp", "cover5.webp", "cover6.webp",  "cover7.webp"];
 const colorSets = [
   {
     "--text-color": "#c0caf5",
@@ -29,8 +29,29 @@ const colorSets = [
   {
     "--text-color": "#EAEFFD",
     "--hover-color": "#266BA5",
-    "--accent-color": "#4775e4",
-		"--accent-color-2": "#99BCD3",
+    "--accent-color": "#4775e4", 
+    "--accent-color-2": "#99BCD3",
+    "--background-color": "#16191F",
+  },
+  {
+    "--text-color": "#EAEFFD",
+    "--hover-color": "#266BA5",
+    "--accent-color": "#4775e4", 
+    "--accent-color-2": "#99BCD3",
+    "--background-color": "#16191F",
+  },
+	{
+    "--text-color": "#EAEFFD",
+    "--hover-color": "#266BA5",
+    "--accent-color": "#4775e4", 
+    "--accent-color-2": "#99BCD3",
+    "--background-color": "#16191F",
+  },
+	{
+    "--text-color": "#EAEFFD",
+    "--hover-color": "#266BA5",
+    "--accent-color": "#4775e4", 
+    "--accent-color-2": "#99BCD3",
     "--background-color": "#16191F",
   },
 ];
