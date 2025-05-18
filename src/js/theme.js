@@ -3,28 +3,28 @@ let currentIndex =
   document.currentScript.getAttribute("currentIndex");
 currentIndex = parseInt(currentIndex);
 
-const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover5.webp", "cover6.webp",  "cover7.webp"];
+const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp", "cover5.webp",  "cover6.webp"];
 const colorSets = [
   {
-    "--text-color": "#EAEFFD",
-    "--hover-color": "#266BA5",
-    "--accent-color": "#4775e4", 
-    "--accent-color-2": "#99BCD3",
-    "--background-color": "#16191F",
+    "--text-color": "#f8a4cb",
+    "--hover-color": "#d75f6d",
+    "--accent-color": "#6e85a8", 
+    "--accent-color-2": "#5cb1cb",
+    "--background-color": "#28233e",
   },
   {
-    "--text-color": "#EAEFFD",
-    "--hover-color": "#266BA5",
-    "--accent-color": "#4775e4", 
-    "--accent-color-2": "#99BCD3",
-    "--background-color": "#16191F",
+    "--text-color": "#f0eae4",
+    "--hover-color": "#d29a74",
+    "--accent-color": "#2a6fa9", 
+    "--accent-color-2": "#99bcd3",
+    "--background-color": "#16191f",
   },
   {
-    "--text-color": "#EAEFFD",
-    "--hover-color": "#266BA5",
-    "--accent-color": "#4775e4", 
-    "--accent-color-2": "#99BCD3",
-    "--background-color": "#16191F",
+    "--text-color": "#8991a2",
+    "--hover-color": "#edfd9b",
+    "--accent-color": "#adb8cb", 
+    "--accent-color-2": "#750008",
+    "--background-color": "#0c1929",
   },
   {
     "--text-color": "#fef5f4",
