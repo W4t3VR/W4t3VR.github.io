@@ -50,10 +50,15 @@ const colorSets = [
 ];
 
 function preloadImages() {
-  for (let i = 0; i < images.length; i++) {
-    const img = new Image();
-    img.src = "../src/images/" + images[i];
-  }
+  const imagePath = "../src/images/";
+
+  images.forEach((imgName) => {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = imagePath + imgName;
+    document.head.appendChild(link);
+  });
 }
 
 function nextImage() {
