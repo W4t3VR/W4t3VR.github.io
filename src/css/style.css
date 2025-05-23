@@ -131,6 +131,7 @@ body {
 }
 
 .header {
+  width: -moz-available;
   color: var(--accent-color);
   font-size: 1.6em;
   font-weight: 600;
@@ -152,7 +153,7 @@ body {
 ul {
   list-style-type: none;
   padding-left: 1em;
-  margin-left: 0;
+  margin: 10px 0px;
 }
 li {
   opacity:0;
@@ -184,8 +185,8 @@ a:hover {
   font-style: italic;
 }
 
-.fazzi .urls:nth-child(even) {
-  padding-left: 1.5em;
+.fazzi .urls:nth-child(odd) {
+  padding-right: 1.5em;
 }
 
 #image {
