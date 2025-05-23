@@ -185,8 +185,8 @@ a:hover {
   font-style: italic;
 }
 
-.fazzi .urls:nth-child(odd) {
-  padding-right: 1.5em;
+.fazzi .urls:nth-child(even) {
+  padding-left: 1.1em;
 }
 
 #image {
