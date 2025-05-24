@@ -47,7 +47,7 @@ body {
 
 #text,
 #image {
-  animation: onload 1.0s;
+  animation: onload 1s;
 }
 #carouselImage {
   height: 550px;
@@ -86,10 +86,8 @@ body {
     margin: 0px;
     overflow: hidden; 
     white-space: nowrap;
-    margin: 0 auto; 
     animation: 
-      typing 2s steps(50, end),
-      step-end;
+      typing 2s steps(20) alternate
   }
 }
 
@@ -139,9 +137,7 @@ body {
   display: inline-block;
   white-space: nowrap;
   margin: 0 auto; 
-  animation: 
-    typing 2s steps(50, end),
-    step-end;
+  animation: typing 1.7s steps(20) alternate
 }
 
 #links {
@@ -163,16 +159,16 @@ li:nth-child(1) {
   animation-delay: 2s;
 }
 li:nth-child(2) {
-  animation-delay: 2.4s;
+  animation-delay: 2.35s;
 }
 li:nth-child(3) {
-  animation-delay: 2.8s;
+  animation-delay: 2.7s;
 }
 li:nth-child(4) {
-  animation-delay: 3.2s;
+  animation-delay: 3.05s;
 }
 li:nth-child(5) {
-  animation-delay: 3.6s;
+  animation-delay: 3.4s;
 }
 a {
   color: var(--text-color);
