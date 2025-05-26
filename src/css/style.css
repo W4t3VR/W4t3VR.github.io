@@ -84,10 +84,6 @@ body {
   display: grid;
   P {
     margin: 0px;
-    overflow: hidden; 
-    white-space: nowrap;
-    animation: 
-      typing 2s steps(20) alternate
   }
 }
 
