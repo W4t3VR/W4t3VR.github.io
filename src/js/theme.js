@@ -1,5 +1,5 @@
 let currentIndex =
-  localStorage.getItem("currentIndex") ||
+  localStorage.getItem("currentIndex") || 0
   document.currentScript.getAttribute("currentIndex");
 currentIndex = parseInt(currentIndex);
 
