@@ -1,8 +1,7 @@
-let currentIndex =
-  localStorage.getItem("currentIndex") || 0;
-  document.currentScript.getAttribute("currentIndex");
-currentIndex = parseInt(currentIndex);
-
+let currentIndex = parseInt(localStorage.getItem("currentIndex"));
+if (isNaN(currentIndex) || currentIndex < 0 || currentIndex >= 6) {
+  currentIndex = 0;
+}
 const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp", "cover5.webp",  "cover6.webp"];
 const colorSets = [
   {
