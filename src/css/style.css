@@ -125,7 +125,7 @@ body {
 }
 
 .header {
-  width: -moz-available;
+  width: 100%;
   color: var(--accent-color);
   font-size: 1.6em;
   font-weight: 600;
