@@ -1,7 +1,7 @@
 window.onload = function () {
 var canvas = document.getElementById('nokey'),
-   can_w = parseInt(canvas.getAttribute('width')),
-   can_h = parseInt(canvas.getAttribute('height')),
+   can_w = window.innerWidth),
+   can_h = window.innerHeight,
    ctx = canvas.getContext('2d');
 
 // console.log(typeof can_w);
