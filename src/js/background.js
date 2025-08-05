@@ -1,6 +1,6 @@
 window.onload = function () {
 var canvas = document.getElementById('nokey'),
-   can_w = window.innerWidth),
+   can_w = window.innerWidth,
    can_h = window.innerHeight,
    ctx = canvas.getContext('2d');
 
