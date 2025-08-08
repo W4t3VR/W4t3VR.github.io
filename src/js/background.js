@@ -6,6 +6,7 @@ var canvas = document.getElementById('nokey'),
 
 var BALL_DENSITY = 0.00006; // tweak this value for desired density
 var BALL_NUM = calculateBallNum();
+cosole.log(BALL_NUM)
    
 var ball = {
       x: 0,
