@@ -4,10 +4,10 @@ var canvas = document.getElementById('nokey'),
    can_h = window.innerHeight,
    ctx = canvas.getContext('2d');
 
-// console.log(typeof can_w);
 var BALL_DENSITY = 0.00006; // tweak this value for desired density
 var BALL_NUM = Math.floor(window.innerWidth * window.innerHeight * BALL_DENSITY);
-
+// console.log(BALL_NUM);
+   
 var ball = {
       x: 0,
       y: 0,
