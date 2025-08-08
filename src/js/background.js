@@ -205,7 +205,7 @@ function addBallIfy(){
     if(balls.length < BALL_NUM){
         balls.push(getRandomBall());
     }
-    else if(balls.length <> BALL_NUM){
+    else if(balls.length > BALL_NUM){
         balls.pop();
     }
 }
