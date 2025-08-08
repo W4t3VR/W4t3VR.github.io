@@ -4,9 +4,8 @@ var canvas = document.getElementById('nokey'),
    can_h = window.innerHeight,
    ctx = canvas.getContext('2d');
 
-var BALL_DENSITY = 0.00006; // tweak this value for desired density
-var BALL_NUM = calculateBallNum();
-console.log(BALL_NUM)
+var BALL_DENSITY = 0.00006;
+var BALL_NUM = Math.floor(window.innerWidth * window.innerHeight * BALL_DENSITY);
    
 var ball = {
       x: 0,
@@ -41,12 +40,6 @@ var ball = {
       type: 'mouse'
    };
 
-//Calculate base on width and height
-function calculateBallNum() {
-    var num = Math.floor(window.innerWidth * window.innerHeight * BALL_DENSITY);
-    return num
-}   
-   
 // Random speed
 function getRandomSpeed(pos){
     var  min = -1,
@@ -202,12 +195,8 @@ function getDisOf(b1, b2){
 
 // add balls if there a little balls
 function addBallIfy(){
-    BALL_NUM = calculateBallNum();
     if(balls.length < BALL_NUM){
         balls.push(getRandomBall());
-    }
-    else if(balls.length > BALL_NUM){
-        balls.pop();
     }
 }
 
@@ -250,9 +239,7 @@ function initCanvas(){
 }
 
 window.addEventListener('resize', function(e){
-    console.log('Window Resize...');
     initCanvas();
-    BALL_NUM = calculateBallNum();
 });
 
 window.addEventListener('scroll', function(e){
