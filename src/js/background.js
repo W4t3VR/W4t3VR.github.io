@@ -6,7 +6,7 @@ var canvas = document.getElementById('nokey'),
 
 var BALL_DENSITY = 0.00006; // tweak this value for desired density
 var BALL_NUM = Math.floor(window.innerWidth * window.innerHeight * BALL_DENSITY);
-// console.log(BALL_NUM);
+console.log(BALL_NUM);
    
 var ball = {
       x: 0,
