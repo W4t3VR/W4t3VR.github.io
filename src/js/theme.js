@@ -63,8 +63,16 @@ function nextImage() {
   updateColors(currentIndex);
 
   setTimeout(() => {
-    imageElement.src = "../src/images/" + images[currentIndex];
-    imageElement.style.opacity = 1;
+    const newSrc = "../src/images/" + images[currentIndex];
+    const tempImage = new Image();
+  
+    tempImage.onload = () => {
+      // Swap once it's loaded
+      imageElement.src = newSrc;
+      imageElement.style.opacity = 1; // Fade in
+  };
+
+  tempImage.src = newSrc;
   }, 200); // Match the transition duration in style.css
 }
 
