@@ -1,4 +1,5 @@
 const dateElement = document.getElementById("date");
+const greetElement = document.getElementById("greet-time");
 
 function showTime() {
   const date = new Date();
@@ -17,6 +18,21 @@ function showTime() {
   const [dayOfWeek, dateStr, time] = formattedDate.split(", ");
 
   dateElement.innerHTML = `${dayOfWeek}, ${time} | ${dateStr}`;
+
+const hour = date.getHours();
+  let greeting = "";
+
+  if (hour < 12) {
+    greeting = "morning";
+  } else if (hour < 18) {
+    greeting = "afternoon";
+  } else if (hour < 22) {
+    greeting = "evening";
+  } else {
+    greeting = "night";
+  }
+
+  greetElement.textContent = greeting;
 }
 
 setInterval(showTime, 1000);
