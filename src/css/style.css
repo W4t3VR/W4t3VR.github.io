@@ -110,6 +110,7 @@ body {
     font-size: 20px;
     border: 2px dashed;
     border-color: var(--accent-color-2);
+    box-shadow: 0px 0px 10px var(--accent-color-2);
     border-width: 3px;
     box-sizing: border-box;
     outline: none;
@@ -128,6 +129,7 @@ body {
 }
 
 .header {
+  white-space: nowrap;
   color: var(--accent-color);
   font-size: 1.6em;
   font-weight: 600;
@@ -135,13 +137,21 @@ body {
 
 #links {
   display: grid;
-  grid-row-gap: 0.5em;
-  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.urls {
+  padding: 1em;
+  border: 2px solid var(--accent-color-2);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px var(--accent-color-2);
+  text-align: center;
 }
 
 ul {
   list-style-type: none;
-  padding-left: 1em;
+  padding-left: 0;
   margin: 14px 0px;
 }
 li {
@@ -163,19 +173,17 @@ li:nth-child(4) {
 li:nth-child(5) {
   animation-delay: 2.4s;
 }
+
 a {
   color: var(--text-color);
   font-size: 1.2em;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
   color: var(--hover-color);
-  font-style: italic;
-}
-
-.fazzi .urls:nth-child(even) {
-  padding-left: 1.1em;
+  text-shadow: 2px 2px 4px var(--accent-color);
 }
 
 #image {
