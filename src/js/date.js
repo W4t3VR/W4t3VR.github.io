@@ -1,5 +1,5 @@
 const dateElement = document.getElementById("date");
-const greetElement = document.getElementById("greet-time");
+const greetingElement = document.getElementById("greeting");
 
 function showTime() {
   const date = new Date();
@@ -19,7 +19,7 @@ function showTime() {
 
   dateElement.innerHTML = `${dayOfWeek}, ${time} | ${dateStr}`;
 
-const hour = date.getHours();
+  const hour = date.getHours();
   let greeting = "";
 
   if (hour < 12) {
@@ -32,7 +32,7 @@ const hour = date.getHours();
     greeting = "night";
   }
 
-  greetElement.textContent = greeting;
+  greetingElement.innerHTML = `Good ${greeting}, WatEVR`;
 }
 
 setInterval(showTime, 1000);
