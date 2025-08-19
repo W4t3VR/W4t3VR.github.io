@@ -135,6 +135,7 @@ body {
 }
 
 .urls {
+  backdrop-filter: blur(3px);     
   padding: 1em;
   border: 2px solid var(--accent-color-2);
   border-radius: 8px;

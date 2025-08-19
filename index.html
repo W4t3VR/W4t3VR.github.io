@@ -5,7 +5,11 @@
     <meta name="darkreader-lock" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="src/images/favicon-96x96.png">
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/setting.css">
   </head>
   <body class="fazzi">
     <canvas id="nokey" width="1920" height="1080">
@@ -25,7 +29,7 @@
       </div>
       <div id="links">
         <div class="urls">
-          <span class="header">~/general ☄</span>
+          <span class="header">~/general</span>
           <ul>
             <li><a href="https://youtube.com">YouTube</a></li>
             <li><a href="https://gmail.com/">Gmail</a></li>
@@ -35,7 +39,7 @@
           </ul>
         </div>
         <div class="urls">
-          <span class="header">~/devel </span>
+          <span class="header">~/devel</span>
           <ul>
             <li><a href="https://github.com/W4t3VR">GitHub</a></li>
             <li><a href="https://gitlab.com/dashboard/projects">GitLab</a></li>
@@ -44,7 +48,7 @@
           </ul>
         </div>
         <div class="urls">
-          <span class="header">~/school 󰑴</span>
+          <span class="header">~/school</span>
           <ul>
             <li><a href="https://courses.uit.edu.vn/">CoursesUIT</a></li>
             <li><a href="https://www.office.com/?auth=2">Office</a></li>
@@ -54,7 +58,7 @@
           </ul>
         </div>
         <div class="urls">
-          <span class="header">~/reddit </span>
+          <span class="header">~/reddit</span>
           <ul>
             <li><a href="https://reddit.com/">reddit.com</a></li>
             <li><a href="https://reddit.com/r/unixporn/">r/unixporn</a></li>
@@ -66,11 +70,22 @@
         </div>
       </div>
     </div>
+
+    <button id="toggle-btn">☰ Links</button>
+
+    <!-- Panel -->
+    <div id="links-panel">
+      <button id="save">Save to localStorage</button>
+      <button id="load">Load links</button>
+      <div id="links-json"></div>
+    </div>
+
     <script async src="../src/js/background.js"></script>
     <script async src="../src/js/date.js"></script>
     <script async src="../src/js/theme.js"></script>
     <script defer src="../src/js/typing.js"></script>
     <script defer src="../src/js/search.js"></script>
     <script defer src="../src/js/engineList.js"></script>  
+    <script defer src="../src/js/setting.js"></script>  
   </body>
 </html>

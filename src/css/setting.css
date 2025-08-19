@@ -1,0 +1,41 @@
+#toggle-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 10px 14px;
+  background: #2a2a2a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 1000;
+}
+#toggle-btn:hover {
+  background: #444;
+}
+
+#links-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 70%;
+  height: 80%;
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 12px;
+
+  opacity: 0;
+  pointer-events: none; /* prevent clicks when hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+#links-panel.open {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
