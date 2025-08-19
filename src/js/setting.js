@@ -1,10 +1,11 @@
-const btn = document.getElementById("toggle-btn");
-  const panel = document.getElementById("links-panel");
-  btn.addEventListener("click", () => {
-    panel.classList.toggle("open");
-  });
+const btn = document.getElementById("setting-btn");
+const panel = document.getElementById("setting-panel");
 
-//extract links from the HTML structure
+btn.addEventListener("click", () => {
+  panel.classList.toggle("open");
+});
+
+// extract links from the hardcoded HTML
 function extractLinks() {
   const links = [];
 
@@ -18,28 +19,81 @@ function extractLinks() {
 
     links.push(group);
   });
+
   return links;
 }
 
+// build links from JSON
+function buildLinks(links) {
+  const container = document.getElementById("links");
+  container.innerHTML = ""; // clear old
+
+  links.forEach(group => {
+    const div = document.createElement("div");
+    div.classList.add("urls");
+
+    // header
+    const header = document.createElement("span");
+    header.classList.add("header");
+    header.textContent = `~/${group.title}`;
+    div.appendChild(header);
+
+    //links list
+    const ul = document.createElement("ul");
+    group.links.forEach(link => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = link.value;
+      a.textContent = link.label;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    div.appendChild(ul);
+    container.appendChild(div);
+  });
+}
+
+// save JSON to localStorage
 function saveLinks(links) {
   localStorage.setItem("links", JSON.stringify(links));
 }
 
-function loadLinks() {
-  const container = document.getElementById("links-json");
-  container.textContent = JSON.stringify(JSON.parse(localStorage.getItem("links")), null, 2); // format JSON view
+// load JSON into textarea (formatted)
+function loadLinksEditor() {
+  const container = document.getElementById("display");
+  container.value = JSON.stringify(JSON.parse(localStorage.getItem("links")), null, 2);
 }
 
+// init
 document.addEventListener("DOMContentLoaded", () => {
-  const links = extractLinks();
-  saveLinks(links);
+  let links;
+
+  if (localStorage.getItem("links")) {
+    // load from localStorage
+    links = JSON.parse(localStorage.getItem("links"));
+  } else {
+    // first run → extract from HTML and save
+    links = extractLinks();
+    saveLinks(links);
+  }
+
+  // build HTML & load textarea editor
+  buildLinks(links);
+  loadLinksEditor();
 });
 
+// save button
 document.getElementById("save").addEventListener("click", () => {
-  saveLinks(links);
-  console.log("Saved links to localStorage");
-});
+  const textarea = document.getElementById("display");
+  const edited = textarea.value;
 
-document.getElementById("load").addEventListener("click", () => {
-  loadLinks();
+  try {
+    const parsed = JSON.parse(edited); // validate JSON
+    saveLinks(parsed);
+    buildLinks(parsed);
+    alert("✅ Links updated and applied to HTML!");
+  } catch (e) {
+    alert("❌ Invalid JSON. Please check your edits.");
+  }
 });
