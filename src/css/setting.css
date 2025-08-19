@@ -16,17 +16,18 @@
 }
 
 #setting-panel {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
-  width: 70%;
+  width: 90%;
   height: 80%;
-  background: rgba(20, 20, 20, 0.9);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  padding: 20px;
-  border-radius: 12px;
+  backdrop-filter: blur(3px);     
+  padding: 2em;
+  border: 2px solid var(--accent-color-2);
+  box-shadow: 0px 0px 10px var(--accent-color-2);
 
   opacity: 0;
   pointer-events: none; 
@@ -39,31 +40,58 @@
   transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
 }
+#setting-panel h2 {
+  margin: 0 0 1em;
+  color: var(--text-color);
+}
 
 #display {
+  flex: 1;
   width: 100%;
-  height: 100%;          
+  height: auto;          
   resize: none;           
   padding: 16px;
   box-sizing: border-box;
-
   font-family: SpaceMono Nerd Font, monospace;
   font-size: 14px;
   line-height: 1.5;
-
-  background: rgba(15, 15, 15, 0.95);
-  color: #eaeaea;
-
-  border: 1px solid #333;
-  border-radius: 10px;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
-
+  background: var(--background-color);
+  backdrop-filter: blur(3px);     
+  color: var(--text-color);
+  border: 2px solid var(--accent-color-2);
+  box-shadow: 0px 0px 10px var(--accent-color-2);
   white-space: pre;     
   overflow: auto;
+  scrollbar-width: 1em;             
+  scrollbar-color: var(--accent-color-2) transparent;  
+}
+
+#display::-webkit-scrollbar {
+  width: 1em;          
+  height: 1em;           
+}
+
+#display::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color-2);  
 }
 
 #display:focus {
   outline: none;
   border-color: #6c9ef8;
   box-shadow: 0 0 8px rgba(108, 158, 248, 0.6);
+}
+
+#button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  flex-shrink: 0;
+}
+#button button {
+  padding: 10px 14px;
+  background: var(--text-color);
+  color: var(--background-color);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
 }
