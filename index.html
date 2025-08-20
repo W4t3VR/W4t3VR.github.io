@@ -16,7 +16,7 @@
       <!-- https://codepen.io/jkiss/pen/OVEeqK -->
     </canvas>
     <div id="image" onclick="nextImage()">
-      <img id="carouselImage"/>
+      <img id="carouselImage" alt="cover" fetchpriority="high" loading="eager" decoding="async" />
     </div>
     <div id="text">
       <div id="greeting"></div>
@@ -80,11 +80,11 @@
     </div>
 
     <script async src="../src/js/background.js"></script>
-    <script async src="../src/js/date.js"></script>
-    <script async src="../src/js/theme.js"></script>
-    <script defer src="../src/js/setting.js"></script>  
+    <script defer src="../src/js/date.js"></script>
     <script defer src="../src/js/typing.js"></script>
+    <script defer src="../src/js/theme.js"></script>
     <script defer src="../src/js/search.js"></script>
+    <script defer src="../src/js/setting.js"></script>  
     <script defer src="../src/js/engineList.js"></script>  
   </body>
 </html>

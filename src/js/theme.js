@@ -1,5 +1,5 @@
 let currentIndex = parseInt(localStorage.getItem("currentIndex"));
-if (isNaN(currentIndex) || currentIndex < 0 || currentIndex >= 6) {
+if (isNaN(currentIndex) || currentIndex < 0) {
   currentIndex = 0;
 }
 const images = ["cover1.webp", "cover2.webp", "cover3.webp", "cover4.webp", "cover5.webp",  "cover6.webp"];
@@ -7,47 +7,59 @@ const colorSets = [
   {
     "--text-color": "#f8a4cb",
     "--hover-color": "#d75f6d",
-    "--accent-color": "#6e85a8", 
+    "--accent-color": "#6e85a8",
     "--accent-color-2": "#5cb1cb",
     "--background-color": "#28233e",
   },
   {
     "--text-color": "#f0eae4",
     "--hover-color": "#d29a74",
-    "--accent-color": "#2a6fa9", 
+    "--accent-color": "#2a6fa9",
     "--accent-color-2": "#99bcd3",
     "--background-color": "#16191f",
   },
   {
     "--text-color": "#8991a2",
     "--hover-color": "#edfd9b",
-    "--accent-color": "#adb8cb", 
+    "--accent-color": "#adb8cb",
     "--accent-color-2": "#c6001d",
     "--background-color": "#0c1929",
   },
   {
     "--text-color": "#fef5f4",
     "--hover-color": "#3f3d47",
-    "--accent-color": "#936d70", 
+    "--accent-color": "#936d70",
     "--accent-color-2": "#6976b3",
     "--background-color": "#000100",
   },
-	{
+  {
     "--text-color": "#fafefd",
     "--hover-color": "#a862d2",
-    "--accent-color": "#c6a2e7", 
+    "--accent-color": "#c6a2e7",
     "--accent-color-2": "#a337b9",
     "--background-color": "#1b1b28",
   },
-	{
+  {
     "--text-color": "#f3ebf2",
     "--hover-color": "#d19570",
-    "--accent-color": "#717adf", 
+    "--accent-color": "#717adf",
     "--accent-color-2": "#99BCD3",
     "--background-color": "#070922",
   },
 ];
 
+function injectPreloads() {
+  const head = document.head;
+  images.forEach((img) => {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = "../src/images/" + img;
+    head.appendChild(link);
+  });
+}
+
+// Preload via JS as backup
 function preloadImages() {
   for (let i = 0; i < images.length; i++) {
     const img = new Image();
@@ -85,6 +97,7 @@ function updateColors() {
 }
 
 // Set colors with current index first
+injectPreloads();
 updateColors(currentIndex);
 
 // Set the initial image

@@ -18,8 +18,10 @@ function showTime() {
   const [dayOfWeek, dateStr, time] = formattedDate.split(", ");
 
   dateElement.innerHTML = `${dayOfWeek}, ${time} | ${dateStr}`;
+}
 
-  const hour = date.getHours();
+function showGreeting() {
+  const hour = new Date().getHours();
   let greeting = "";
 
   if (hour < 12) {
@@ -31,9 +33,9 @@ function showTime() {
   } else {
     greeting = "night";
   }
-
   greetingElement.innerHTML = `Good ${greeting}, WatEVR`;
 }
 
+showGreeting();
 setInterval(showTime, 1000);
 showTime();
