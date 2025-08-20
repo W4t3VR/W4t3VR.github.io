@@ -9,14 +9,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="src/images/favicon-96x96.png">
     <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/star.css">
     <link rel="stylesheet" href="../src/css/setting.css">
   </head>
   <body class="fazzi">
-    <canvas id="nokey" width="1920" height="1080">
-      <!-- https://codepen.io/jkiss/pen/OVEeqK -->
-    </canvas>
+    <div class="night"></div>
     <div id="image" onclick="nextImage()">
-      <img id="carouselImage" alt="cover" fetchpriority="high" loading="eager" decoding="async" />
+      <img id="carouselImage" alt="cover"/>
     </div>
     <div id="text">
       <div id="greeting"></div>
@@ -78,8 +77,22 @@
         <button id="reset">Reset Default</button>
       </div>
     </div>
+    
+    <script>
+      const numStars = 20;
+      const night = document.querySelector('.night');
 
-    <script async src="../src/js/background.js"></script>
+      for (let i = 0; i < numStars; i++) {
+          const star = document.createElement('div');
+          star.classList.add('shooting_star');
+
+          star.style.top = Math.random() * 100 + "vh";
+          star.style.left = Math.random() * 100 + "vw";
+          const delay = Math.random() * 1000 + "ms";
+          star.style.animationDelay = delay;
+          night.appendChild(star);
+      }
+    </script>
     <script defer src="../src/js/date.js"></script>
     <script defer src="../src/js/typing.js"></script>
     <script defer src="../src/js/theme.js"></script>

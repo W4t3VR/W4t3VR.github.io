@@ -92,8 +92,7 @@ document.getElementById("save").addEventListener("click", () => {
     const parsed = JSON.parse(edited); // validate JSON
     saveLinks(parsed);
     buildLinks(parsed);
-    alert("✅ Links updated and applied to HTML!");
   } catch (e) {
-    alert("❌ Invalid JSON. Please check your edits.");
+    alert("Invalid JSON. Please check your edits.");
   }
 });
