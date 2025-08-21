@@ -13,7 +13,18 @@
     <link rel="stylesheet" href="../src/css/setting.css">
   </head>
   <body class="fazzi">
-    <div class="night"></div>
+    <section id="night-sky">
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+    </section>
     <div id="image" onclick="nextImage()">
       <img id="carouselImage" alt="cover"/>
     </div>
@@ -78,21 +89,7 @@
       </div>
     </div>
     
-    <script>
-      const numStars = 20;
-      const night = document.querySelector('.night');
-
-      for (let i = 0; i < numStars; i++) {
-          const star = document.createElement('div');
-          star.classList.add('shooting_star');
-
-          star.style.top = Math.random() * 100 + "vh";
-          star.style.left = Math.random() * 100 + "vw";
-          const delay = Math.random() * 1000 + "ms";
-          star.style.animationDelay = delay;
-          night.appendChild(star);
-      }
-    </script>
+    
     <script defer src="../src/js/date.js"></script>
     <script defer src="../src/js/typing.js"></script>
     <script defer src="../src/js/theme.js"></script>

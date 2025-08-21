@@ -21,14 +21,13 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: translate(-50%, -50%);
   width: 90%;
   height: 80%;
   backdrop-filter: blur(3px);     
   padding: 2em;
   border: 2px solid var(--accent-color-2);
   box-shadow: 0px 0px 10px var(--accent-color-2);
-
   opacity: 0;
   pointer-events: none; 
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -37,7 +36,6 @@
 
 #setting-panel.open {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
 }
 #setting-panel h2 {
