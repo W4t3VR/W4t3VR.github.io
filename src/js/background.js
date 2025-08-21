@@ -14,9 +14,9 @@ for (let i = 0; i < numShootingStars; i++) {
     star.style.top = Math.floor(Math.random() * maxTop) + "px";
 
     // spread stars more evenly across screen width
-    const sliceWidth = window.innerWidth / numShootingStars;
-    const baseRight = sliceWidth * i;
-    const offset = Math.random() * sliceWidth;
+    const cols = window.innerWidth / numShootingStars;
+    const baseRight = cols * i;
+    const offset = Math.random() * cols;
     star.style.right = Math.floor(baseRight + offset) + "px";
     star.style.left = "initial";
 
