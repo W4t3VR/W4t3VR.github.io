@@ -37,6 +37,7 @@
 #setting-panel.open {
   opacity: 1;
   pointer-events: auto;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 #setting-panel h2 {
   margin: 0 0 1em;
