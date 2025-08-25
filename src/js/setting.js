@@ -44,32 +44,83 @@ const defaultLinks = [
   }
 ];
 
+const maxLinks = 4; // Number of links to show per page
+
 // build links from JSON
 function buildLinks(links) {
   const container = document.getElementById("links");
   container.innerHTML = "";
-
-  links.forEach(group => {
+  
+  links.forEach((group, groupIndex) => {
     const div = document.createElement("div");
-    div.classList.add("urls");
+    div.classList.add("page");
+
+    const cag = document.createElement("div");
+    cag.classList.add("cagtegory");
+    div.appendChild(cag);
+
+    const prevBtn = document.createElement("button");
+    prevBtn.classList.add("prev");
+    prevBtn.textContent = "~";
+    cag.appendChild(prevBtn);
 
     const header = document.createElement("span");
     header.classList.add("header");
-    header.textContent = `~/${group.title}`;
-    div.appendChild(header);
+    header.textContent = `/${group.title}`;
+    cag.appendChild(header);
 
+    const nextBtn = document.createElement("button");
+    nextBtn.classList.add("next");
+    nextBtn.textContent = "~";
+    cag.appendChild(nextBtn);
+  
     const ul = document.createElement("ul");
-    group.links.forEach(link => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.href = link.value;
-      a.textContent = link.label;
-      li.appendChild(a);
-      ul.appendChild(li);
+    ul.dataset.page = 0;
+    div.appendChild(ul);
+
+    container.appendChild(div);
+
+    function renderPage(page) {
+      ul.innerHTML = "";
+      const start = page * maxLinks;
+      const end = start + maxLinks;
+      const items = links[groupIndex].links.slice(start, end);
+
+      items.forEach(link => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = link.value;
+        a.textContent = link.label;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+
+      prevBtn.disabled = page === 0;
+      nextBtn.disabled = end >= links[groupIndex].links.length;
+    }
+
+    // Button handlers
+    prevBtn.addEventListener("click", () => {
+      let page = parseInt(ul.dataset.page);
+      if (page > 0) {
+        page--;
+        ul.dataset.page = page;
+        ul.classList.add("no-anim");
+        renderPage(page);
+      }
     });
 
-    div.appendChild(ul);
-    container.appendChild(div);
+    nextBtn.addEventListener("click", () => {
+      let page = parseInt(ul.dataset.page);
+      if ((page + 1) * maxLinks < links[groupIndex].links.length) {
+        page++;
+        ul.dataset.page = page;
+        ul.classList.add("no-anim");
+        renderPage(page);
+      }
+    });
+
+    renderPage(0);
   });
 }
 

@@ -1,19 +1,15 @@
 @font-face {
   font-family: "SpaceMono Nerd Font";
   font-display: swap;
-  src:
-    local("SpaceMono Nerd Font"),
-    url(../fonts/SpaceMonoNF.woff2) format("woff2"),
-    url(../fonts/SpaceMonoNF.woff) format("woff");
+  src: local("SpaceMono Nerd Font"), url(../fonts/SpaceMonoNF.woff2) format("woff2"), url(../fonts/SpaceMonoNF.woff) format("woff");
 }
 
 :root {
   color-scheme: dark;
 }
+
 img {
-  transition:
-    transform 0.15s ease-in-out,
-    opacity 0.2s ease-in-out;
+  transition: transform 0.15s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 html {
@@ -21,7 +17,7 @@ html {
   align-items: center;
   justify-content: center;
   height: 100svh;
-  background-color: var(--background-color); 
+  background-color: var(--background-color);
   overflow-x: clip;
 }
 
@@ -32,12 +28,11 @@ html.loaded {
 body {
   display: flex;
   color: var(--text-color);
-  font-family:
-    SpaceMono Nerd Font,
-    monospace;
+  font-family: SpaceMono Nerd Font, monospace;
   justify-content: center;
   align-items: center;
 }
+
 #nokey {
   position: fixed;
   top: 0;
@@ -52,6 +47,7 @@ body {
 #image {
   animation: onload 1s;
 }
+
 #carouselImage {
   height: 550px;
   aspect-ratio: 9 / 16;
@@ -61,7 +57,7 @@ body {
 }
 
 #image {
-  margin-right: 1em;
+  margin-right: 2em;
 }
 
 #carouselImage:hover {
@@ -70,6 +66,7 @@ body {
 }
 
 @media (max-width: 800px) {
+
   img,
   #image {
     display: none;
@@ -82,7 +79,7 @@ body {
   color: var(--accent-color-2);
   font-size: 2.5em;
   font-weight: 900;
-  text-align: center; 
+  text-align: center;
 }
 
 #date {
@@ -96,6 +93,7 @@ body {
 #search {
   position: relative;
   margin-bottom: 20px;
+
   input {
     width: 100%;
     padding: 10px 10px 13px 40px;
@@ -108,6 +106,7 @@ body {
     box-sizing: border-box;
     outline: none;
   }
+
   i {
     position: absolute;
     display: block;
@@ -121,10 +120,28 @@ body {
   }
 }
 
-.header {
-  white-space: nowrap;
+.cagtegory {
+  display: flex;
+  justify-content: center;
   color: var(--accent-color);
   font-size: 1.6em;
+}
+
+.cagtegory button {
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.cagtegory button:disabled {
+  opacity: 0.4;
+}
+
+.header {
+  white-space: nowrap;
   font-weight: 600;
 }
 
@@ -134,7 +151,8 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.urls {
+.page {
+  position: relative;
   padding: 1em;
   border: 2px solid var(--accent-color-2);
   border-radius: 8px;
@@ -147,14 +165,21 @@ ul {
   padding-left: 0;
   margin: 14px 0px;
 }
+
 li {
-  opacity:0;
+  opacity: 0;
   animation: fadeIn 1s ease forwards;
 }
-li:nth-child(1) {animation-delay: 1.2s;}
-li:nth-child(2) {animation-delay: 1.4s;}
-li:nth-child(3) {animation-delay: 1.6s;}
-li:nth-child(4) {animation-delay: 1.8s;}
+
+li:nth-child(1) { animation-delay: 0.8s; } 
+li:nth-child(2) { animation-delay: 1.0s; }
+li:nth-child(3) { animation-delay: 1.2s; }
+li:nth-child(4) { animation-delay: 1.4s; }
+
+ul.no-anim li {
+  opacity: 1;
+  animation: none !important;
+}
 
 a {
   color: var(--text-color);
@@ -167,17 +192,29 @@ a:hover {
   color: var(--hover-color);
 }
 
-#image {
-	padding-right: 1em;
-}
-
 /* Animation */
 @keyframes onload {
-  0% { transform: scale(0.1); opacity: 0; filter: blur(10px); }
-  50% { transform: scale(1.1); opacity: 0.5; filter: blur(5px); }
-  100% { transform: scale(1); opacity: 1; filter: blur(0px); }
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
 
 @keyframes fadeIn {
- to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
