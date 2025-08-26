@@ -5,8 +5,8 @@
     <meta name="darkreader-lock" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="src/images/favicon/favicon-96x96.png">
     <link rel="stylesheet" href="../src/css/main.css">
     <link rel="stylesheet" href="../src/css/star.css">
@@ -22,76 +22,22 @@
       <div id="date"></div>
       <div id="search">
           <form action="https://duckduckgo.com/"> 
-                <input type="text" name="q" id="search_input" autofocus="" autocomplete="off">
+                <input type="text" name="q" id="search_input" autofocus autocomplete="off">
                 <i>~$</i>
           </form>
       </div>
-      <div id="links">
-        <div class="page">
-          <div class="cagtegory">
-              <button class="prev">~</button>
-              <span class="header">/general</span>
-              <button class="next">~</button>
-          </div>
-          <ul>
-            <li><a href="https://youtube.com">YouTube</a></li>
-            <li><a href="https://gmail.com/">Gmail</a></li>
-            <li><a href="https://www.facebook.com/">Facebook</a></li>
-            <li><a href="https://archlinux.org/">ArchWiki</a></li>
-          </ul>
-        </div>
-        <div class="page">
-          <div class="cagtegory">
-              <button class="prev">~</button>
-              <span class="header">/coding</span>
-              <button class="next">~</button>
-          </div>
-          <ul>
-            <li><a href="https://github.com/">GitHub</a></li>
-            <li><a href="https://gitlab.com/dashboard/projects">GitLab</a></li>
-            <li><a href="https://www.w3schools.com/">W3Schools</a></li>
-            <li><a href="https://chatgpt.com">ChatGPT</a></li>
-          </ul>
-        </div>
-        <div class="page">
-          <div class="cagtegory">
-              <button class="prev">~</button>
-              <span class="header">/learning</span>
-              <button class="next">~</button>
-          </div>
-          <ul>
-            <li><a href="https://www.office.com/?auth=2">Office</a></li>
-            <li><a href="https://account.hackthebox.com/dashboard">HackTheBox</a></li>
-            <li><a href="https://www.coursera.org/">Coursera</a></li>
-            <li><a href="https://cyberdefenders.org/">CyberDefenders</a></li>
-          </ul>
-        </div>
-        <div class="page">
-          <div class="cagtegory">
-              <button class="prev"></button>
-              <span class="header">~/reddit</span>
-              <button class="next"></button>
-          </div>
-          <ul>
-            <li><a href="https://reddit.com/r/unixporn/">r/unixporn</a></li>
-            <li><a href="https://reddit.com/r/archlinux/">r/archlinux</a></li>
-            <li><a href="https://reddit.com/r/startpages/">r/startpages</a></li>
-            <li><a href="https://reddit.com/r/FirefoxCSS/">r/FirefoxCSS</a></li>
-          </ul>
-          
-        </div>
-      </div>
+      <div id="links"></div>
     </div>
-
+    
     <button id="setting-btn">☰</button>
     <!-- Setting Panel -->
     <div id="setting-panel">
       <div class="settings-header">
         <h2>Settings</h2>
         <div id="setting-tabs">
-          <button class="tab">Links</button>
-          <button class="tab">Themes</button>
-          <button class="tab">Search Engines</button>
+          <button class="tab active" data-tab="links">Links</button>
+          <button class="tab" data-tab="themes">Themes</button>
+          <button class="tab" data-tab="engines">Search Engines</button>
         </div>
       </div>
       <textarea id="display"></textarea>
@@ -101,10 +47,11 @@
         <button id="reset">Reset Default</button>
       </div>
     </div>
-    
-    <script async src="../src/js/background.js"></script>
+
+    <!-- Scripts -->
+    <script defer src="../src/js/background.js"></script>
+    <script defer src="../src/js/linkList.js"></script>
     <script defer src="../src/js/date.js"></script>
-    <script defer src="../src/js/typing.js"></script>
     <script defer src="../src/js/theme.js"></script>
     <script defer src="../src/js/search.js"></script>
     <script defer src="../src/js/setting.js"></script>  

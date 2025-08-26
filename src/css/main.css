@@ -120,14 +120,14 @@ body {
   }
 }
 
-.cagtegory {
+.category {
   display: flex;
   justify-content: center;
   color: var(--accent-color);
   font-size: 1.6em;
 }
 
-.cagtegory button {
+.category button {
   font-size: inherit;
   color: inherit;
   cursor: pointer;
@@ -136,7 +136,7 @@ body {
   padding: 0;
 }
 
-.cagtegory button:disabled {
+.category button:disabled {
   opacity: 0.4;
 }
 

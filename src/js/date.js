@@ -20,22 +20,31 @@ function showTime() {
   dateElement.innerHTML = `${dayOfWeek}, ${time} | ${dateStr}`;
 }
 
-function showGreeting() {
+function getGreeting() {
   const hour = new Date().getHours();
-  let greeting = "";
-
-  if (hour < 12) {
-    greeting = "morning";
-  } else if (hour < 18) {
-    greeting = "afternoon";
-  } else if (hour < 22) {
-    greeting = "evening";
-  } else {
-    greeting = "night";
-  }
-  greetingElement.innerHTML = `Good ${greeting}, WatEVR`;
+  if (hour < 6) return "The night is quiet... rest well";
+  if (hour < 12) return "Rise and shine, a new day begins";
+  if (hour < 18) return "The day is yours to conquer!";
+  if (hour < 22) return "The evening settles... breathe and unwind";
+  return "The stars watch over you tonight";
 }
 
-showGreeting();
-setInterval(showTime, 1000);
+// --- Typing Effect ---
+function typeWriter(el, text, speed = 50, delay = 200) {
+  el.textContent = "";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  setTimeout(type, delay);
+}
+
 showTime();
+setInterval(showTime, 1000);
+
+const greetingText = getGreeting();
+typeWriter(greetingElement, greetingText, 100, 200);
