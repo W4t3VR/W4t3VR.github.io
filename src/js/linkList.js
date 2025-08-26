@@ -64,7 +64,7 @@ function buildLinks(links) {
 
     const nextBtn = document.createElement("button");
     nextBtn.classList.add("next");
-    nextBtn.textContent = "~";
+    nextBtn.textContent = "»";
     ca.appendChild(nextBtn);
   
     const ul = document.createElement("ul");
