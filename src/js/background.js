@@ -3,7 +3,7 @@ const nightSky = document.getElementById("night-sky");
 // ----------------------------
 // Shooting stars
 // ----------------------------
-const numShootingStars = 15;
+const numShootingStars = 15; 
 const maxTop = window.innerHeight * 0.1;
 
 for (let i = 0; i < numShootingStars; i++) {
@@ -33,7 +33,7 @@ for (let i = 0; i < numShootingStars; i++) {
 // ----------------------------
 // Still stars
 // ----------------------------
-const numStillStars = 80; // total stars
+const numStillStars = 80; 
 
 // pick grid size (roughly square root of total)
 const cols = Math.ceil(Math.sqrt(numStillStars));

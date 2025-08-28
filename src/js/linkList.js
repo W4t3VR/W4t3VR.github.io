@@ -92,7 +92,7 @@ function buildLinks(links) {
       nextBtn.disabled = end >= links[groupIndex].links.length;
     }
 
-    // Button handlers
+    // Button handlers to next or previous page
     prevBtn.addEventListener("click", () => {
       let page = parseInt(ul.dataset.page);
       if (page > 0) {
@@ -134,7 +134,7 @@ function saveLinks(links) {
 }
 
 // load JSON from localStorage into textarea
-function loadLinks(textarea) {
+function loadLinks() {
   textarea.value = JSON.stringify(JSON.parse(localStorage.getItem("links")), null, 2);
 }
 

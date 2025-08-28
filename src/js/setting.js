@@ -4,37 +4,44 @@ const textarea = document.getElementById("display");
 
 btn.addEventListener("click", () => {
   panel.classList.toggle("open");
-  loadLinks(textarea);
+  loadSetting(getActiveTab());
 });
 
 function loadSetting(tab) {
-  
-  if (tab === "links") {
-    textarea.style.display = "block"; // show
-    loadLinks(textarea);
-  } else {
-    textarea.style.display = "none"; 
-    textarea.value = ""; 
-    // future: loadThemes and search engines;
+  // toggle active class on contents
+  document.querySelectorAll(".tab-content").forEach(content =>
+    content.classList.remove("active")
+  );
+
+  const activeTab = document.getElementById("tab-" + tab);
+  activeTab.classList.add("active");
+
+  // load data for each tab
+  switch (tab) {
+    case "links":
+      loadLinks(textarea);
+      break;
+    case "themes":
+      break;
+    case "searchEngines":
+      break;
   }
 }
 
 // tab switching
-document.querySelectorAll("#setting-tabs .tab").forEach(tabBtn => {
+document.querySelectorAll("#tabs .tab").forEach(tabBtn => {
   tabBtn.addEventListener("click", () => {
-    // update active class
-    document.querySelectorAll("#setting-tabs .tab").forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll("#tabs .tab").forEach(btn =>
+      btn.classList.remove("active")
+    );
     tabBtn.classList.add("active");
-
-    // load correct editor state
-    const tab = tabBtn.dataset.tab;
-    loadSetting(tab);
+    loadSetting(getActiveTab());
   });
 });
 
 // get active tab
 function getActiveTab() {
-  return document.querySelector("#setting-tabs .tab.active").dataset.tab;
+  return document.querySelector("#tabs .tab.active").dataset.tab;
 }
 
 // save button
@@ -48,12 +55,15 @@ document.getElementById("save").addEventListener("click", () => {
       const parsed = JSON.parse(edited);
       saveLinks(parsed);
       buildLinks(parsed);
-      panel.classList.remove("open");
     } catch (e) {
       alert("Invalid JSON. Please check your edits.");
     }
   }
-  // future: else if (activeTab === "themes") { ... }
+  if (activeTab === "searchEngines") {
+    saveEngineIndex(engineIndex);
+    saveSearchEngines(searchEngines);
+    saveShortcuts(shortcuts);
+  }
 });
 
 //discard button 
@@ -62,7 +72,10 @@ document.getElementById("discard").addEventListener("click", () => {
   if (activeTab === "links") {
     loadLinks();
   }
-  // future: else if (activeTab === "themes") { loadThemes(); }
+  if (activeTab === "searchEngines") {
+    loadSearchEngines();
+    loadShortcuts();
+  } 
 });
 
 //reset buttons
@@ -76,5 +89,17 @@ document.getElementById("reset").addEventListener("click", () => {
       panel.classList.remove("open");
     }
   }
-  // future: else if (activeTab === "themes") { ... }
+  if (activeTab === "searchEngines") {
+    if (confirm("Are you sure you want to reset search engines and shortcuts to default? This action cannot be undone.")) {
+      localStorage.removeItem("searchEngines");
+      localStorage.removeItem("engineIndex");
+      localStorage.removeItem("shortcuts");
+      saveSearchEngines(defaultSearchEngines);
+      saveShortcuts(defaultShortcuts);
+      saveEngineIndex(0);
+      loadSearchEngines();
+      loadShortcuts();
+      panel.classList.remove("open");
+    }
+  }
 });
