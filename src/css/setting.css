@@ -146,10 +146,14 @@
 }
 
 #engine-controler span {
-  cursor: default;
   width: 12ch;
   display: inline-block;
   text-align: center;
+}
+
+#engine-controler span:hover {
+  color: var(--hover-color);
+  cursor: pointer;
 }
 
 #engine-controler button {
@@ -161,9 +165,8 @@
   padding: 0;
 }
 
-#engine-controler button:disabled {
-  cursor: default;
-  opacity: 0.4;
+#engine-controler button:hover {
+  color: var(--hover-color);
 } 
 
 #engine-editor {
@@ -210,6 +213,10 @@
   font-size: 1.6em;
   color: var(--accent-color);
   cursor: pointer;
+}
+
+#engine-editor button:hover {
+  color: var(--hover-color);
 }
 
 #shortcuts {
@@ -259,6 +266,10 @@
   font-size: 1em;
   color: var(--accent-color);
   cursor: pointer;
+}
+
+.shortcut button:hover {
+  color: var(--hover-color);
 }
 
 /* Action Buttons */
