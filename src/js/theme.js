@@ -87,6 +87,7 @@ function syncImageHeight() {
   const text = document.getElementById("text");
   const img = document.getElementById("carouselImage");
   img.style.height = text.offsetHeight + "px";
+  img.style.opacity = 1;
 }
 
 window.addEventListener("load", syncImageHeight);
