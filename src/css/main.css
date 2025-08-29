@@ -8,15 +8,13 @@
   color-scheme: dark;
 }
 
-img {
-  transition: transform 0.15s ease-in-out, opacity 0.2s ease-in-out;
+html, body {
+  height: 100%;       
+  margin: 0;           
+  padding: 0;
 }
 
 html {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100svh;
   background-color: var(--background-color);
   overflow-x: clip;
 }
@@ -27,10 +25,10 @@ html.loaded {
 
 body {
   display: flex;
+  justify-content: center; 
+  align-items: center;     
   color: var(--text-color);
-  font-family: SpaceMono Nerd Font, monospace;
-  justify-content: center;
-  align-items: center;
+  font-family: "SpaceMono Nerd Font", monospace;
 }
 
 #nokey {
@@ -43,36 +41,31 @@ body {
   pointer-events: auto;
 }
 
+#wrap {
+  display: flex;
+  gap: 2em;
+}
+
 #text,
 #image {
   animation: onload 1s;
 }
 
+#text {
+  height: min-content;
+}
+
 #carouselImage {
-  height: 550px;
   aspect-ratio: 9 / 16;
   border-radius: 6px;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
   object-fit: cover;
-}
-
-#image {
-  margin-right: 2em;
+  transition: transform 0.15s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 #carouselImage:hover {
   transform: scale(1.1);
   cursor: pointer;
-}
-
-@media (max-width: 800px) {
-
-  img,
-  #image {
-    display: none;
-    margin: 0;
-    padding: 0;
-  }
 }
 
 #greeting {

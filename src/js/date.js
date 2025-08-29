@@ -37,6 +37,7 @@ function typeWriter(el, text, speed = 50, delay = 200) {
     if (i < text.length) {
       el.textContent += text.charAt(i);
       i++;
+      syncImageHeight();
       setTimeout(type, speed);
     }
   }
