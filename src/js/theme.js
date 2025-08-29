@@ -99,6 +99,7 @@ window.onload = function () {
   document.getElementById("image").classList.add("loaded");
   document.getElementById("text").classList.add("loaded");
   document.getElementsByTagName("html")[0].classList.add("loaded");
+  syncImageHeight();
   // Preload the remaining images
   preloadImages();
 };
