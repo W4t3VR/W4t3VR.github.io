@@ -8,8 +8,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="src/images/favicon/favicon-96x96.png">
-    <link rel="stylesheet" href="../src/css/main.css">
     <link rel="stylesheet" href="../src/css/setting.css">
+    <link rel="stylesheet" href="../src/css/main.css">
     <link rel="stylesheet" href="../src/css/star.css">
   </head>
   <body>
@@ -44,7 +44,41 @@
         <textarea id="display"></textarea>
       </div>
       <div class="tab-content" id="tab-themes">
-        <label>Choose Theme:</label>
+        <div id ="theme-selector">
+          <span>Theme</span>
+          <div id="theme-controler">
+              <button class="prev">&#x276e;</button>
+              <input id="theme-name" type="text">
+              <button class="next">&#x276f;</button>
+          </div>
+          <span>Cover</span>
+          <input id="theme-image" type="text">
+          <span>Colors</span>
+          <div id="theme-editor">
+            <div id="color-editor">
+              <div id="theme-colors">
+                <button class="color-btn" id="background-color">--background-color</button>
+                <button class="color-btn" id="text-color">--text-color</button>
+                <button class="color-btn" id="accent-color">--accent-colorr</button>
+                <button class="color-btn" id="accent-color-2">--accent-color-2</button>
+                <button class="color-btn" id="hover-color">--hover-color</button>
+              </div>
+              <div id="color-review">
+                <label>hex:<input id="hex-color" type="text"></label>
+                <label>Hue<input class="slider id="hue" type="range" min="0" max="360" step="1"></label>
+                <label>Saturation<input class="slider id="saturation" type="range" min="0" max="100" step="1"></label>
+                <label>Lightness<input class="slider id="lightness" type="range" min="0" max="100" step="1"></label>
+              </div>
+            </div>
+          </div>
+          <div id="setting-actions">
+            <button id="add">Add Theme</button>
+            <button id="remove">Remove Theme</button>
+          </div>
+        </div>
+        <div id ="theme-review">
+
+        </div>
       </div>
       <div class="tab-content" id="tab-searchEngines">
         <div id="engine-selector">
