@@ -48,6 +48,7 @@ input:focus {
   opacity: 1;
   pointer-events: auto;
 }
+
 #setting-panel h2 {
   align-items: center;
   color: var(--text-color);
@@ -172,7 +173,7 @@ input:focus {
   line-height: 1;
   text-align: center;
   background: var(--background-color);
-  color: var(--accent-color);
+  color: var(--hover-color);
   border: none;
   border-bottom: 2px solid var(--accent-color-2);
   font-family: SpaceMono Nerd Font, monospace;
@@ -230,11 +231,15 @@ input:focus {
   text-align: left;
   color: var(--text-color);
   white-space: nowrap;
+  width: 100% ;
 }
 
 .color-btn:hover {
   color: var(--hover-color);
-  width: 100% ;
+}
+
+.color-btn.active {
+  color: var(--hover-color);
 }
 
 #color-review {
@@ -387,11 +392,13 @@ input[type="range"]::-ms-thumb {
 }
 
 #theme-review {
-  flex: 5;
+  flex: 7;
   border: 2px solid var(--accent-color-2);
   overflow: auto; 
   scrollbar-width: none; 
 }
+
+
 
 /* Search Engine Tab */
 #engine-selector {
@@ -541,4 +548,10 @@ input[type="range"]::-ms-thumb {
   border: none;
   cursor: pointer;
   font-size: 1em;
+}
+
+@media screen and (max-width: 1366px) {
+  #theme-review {
+    flex: 5;
+  }
 }

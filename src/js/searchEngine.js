@@ -106,9 +106,6 @@ span.addEventListener("click", () => {
   setMode(mode);
 });
 
-updateEngine();
-setMode(mode);
-
 // toggle button
 changeModeBtn.addEventListener("click", () => {
   setMode(mode === "engine" ? "shortcut" : "engine");
@@ -124,8 +121,6 @@ function saveEngineIndex(index) {
 }
 
 function loadSearchEngines() {
-  searchEngines = JSON.parse(localStorage.getItem("searchEngines"));
-  engineIndex = parseInt(localStorage.getItem("engineIndex"), 10);
   updateEngine();
   setMode(mode);
 }

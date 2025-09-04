@@ -22,8 +22,11 @@ function loadSetting(tab) {
       loadLinks(textarea);
       break;
     case "themes":
+      loadThemes();
       break;
     case "searchEngines":
+      loadSearchEngines();
+      loadShortcuts();
       break;
   }
 }

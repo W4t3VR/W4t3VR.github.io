@@ -18,7 +18,6 @@ if (localStorage.getItem("shortcuts")) {
   shortcuts = defaultShortcuts;
   saveShortcuts(shortcuts);
 }
-buildShortcuts(shortcuts);
 
 //build and display shortcuts from JSON
 function buildShortcuts(shortcuts) {
@@ -35,11 +34,13 @@ function buildShortcuts(shortcuts) {
     const keyInput = document.createElement("input");
     keyInput.type = "text";
     keyInput.value = key;
+    keyInput.name = "shortcut-name";
     keyInput.classList.add("shortcut-name");
 
     const linkInput = document.createElement("input");
     linkInput.type = "text";
     linkInput.value = shortcuts[key];
+    linkInput.name = "shortcut-link";
     linkInput.classList.add("shortcut-link");  
 
     // Button and input handlers
@@ -81,7 +82,6 @@ function saveShortcuts(shortcuts) {
 }
 
 function loadShortcuts() {
-  shortcuts = JSON.parse(localStorage.getItem("shortcuts"));
   buildShortcuts(shortcuts);
 }
 
