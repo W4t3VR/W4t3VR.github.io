@@ -162,7 +162,7 @@ ul {
   margin: 14px 0px;
 }
 
-li {
+.page li {
   opacity: 0;
   animation: fadeIn 1s ease forwards;
 }

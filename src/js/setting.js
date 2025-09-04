@@ -22,6 +22,7 @@ function loadSetting(tab) {
       loadLinks(textarea);
       break;
     case "themes":
+      syncImageHeight();
       loadThemes();
       break;
     case "searchEngines":

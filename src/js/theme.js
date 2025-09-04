@@ -67,6 +67,9 @@ const themeImageLink = document.querySelector("#theme-image-link");
 const prevButn = document.querySelector("#theme-controler .prev");
 const nextButn = document.querySelector("#theme-controler .next");
 const hexColor = document.querySelector("#hex-color");
+const themeRe = document.querySelector("#theme-review");
+const reImg = document.querySelector("#review-image");
+const reText = document.querySelector("#review-text");
 
 let themes;
 let themeIndex = currentIndex;
@@ -122,6 +125,7 @@ function syncImageHeight() {
   const img = document.getElementById("carouselImage");
   img.style.height = text.offsetHeight + "px";
   img.style.opacity = 1;
+  reImg.style.height = reText.offsetHeight + "px";
 }
 
 window.addEventListener("load", syncImageHeight);
@@ -142,8 +146,19 @@ window.onload = function () {
 
 //--- Theme Controler ----
 function updateTheme() {
-  themeName.value = themes[themeIndex].name;
-  themeImageLink.value = themes[themeIndex].cover;
+  const theme = themes[themeIndex];
+
+  themeName.value = theme.name;
+  themeImageLink.value = theme.cover;
+  reImg.src = theme.cover;
+
+  // update CSS variables
+  for (const [property, value] of Object.entries(theme)) {
+    if (property.startsWith("--")) {
+      themeRe.style.setProperty(property, value);
+    }
+  }
+
   loadColor(getActiveBtn());
 }
 
