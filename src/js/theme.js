@@ -71,6 +71,11 @@ const themeRe = document.querySelector("#theme-review");
 const reImg = document.querySelector("#review-image");
 const reText = document.querySelector("#review-text");
 
+// --- Slider references ---
+const hueSlider = document.getElementById("hue");
+const satSlider = document.getElementById("saturation");
+const lightSlider = document.getElementById("lightness");
+
 let themes;
 let themeIndex = currentIndex;
 
@@ -144,13 +149,58 @@ window.onload = function () {
 
 //--- SETTING ---
 
-//--- Theme Controler ----
+// --- Convert HEX -> HSL ---
+function hexToHSL(hex) {
+  hex = hex.replace(/^#/, "");
+  if (hex.length === 3) {
+    hex = hex.split("").map(x => x + x).join("");
+  }
+
+  const r = parseInt(hex.substring(0, 2), 16) / 255;
+  const g = parseInt(hex.substring(2, 4), 16) / 255;
+  const b = parseInt(hex.substring(4, 6), 16) / 255;
+
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  let h, s, l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0;
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h *= 60;
+  }
+
+  return {
+    h: Math.round(h),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100)
+  };
+}
+
+// --- Convert HSL to HEX ---
+function hslToHex(h, s, l) {
+  s /= 100; l /= 100;
+  const k = (n) => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = (n) =>
+    Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)))));
+  return `#${[f(0), f(8), f(4)].map((x) => x.toString(16).padStart(2, "0")).join("")}`;
+}
+
+//--- Theme Controller ----
 function updateTheme() {
   const theme = themes[themeIndex];
 
   themeName.value = theme.name;
   themeImageLink.value = theme.cover;
-  reImg.src = theme.cover;
+  reImg.src = themeImageLink.value;
 
   // update CSS variables
   for (const [property, value] of Object.entries(theme)) {
@@ -172,26 +222,41 @@ nextButn.addEventListener("click", () => {
   updateTheme();
 });
 
-//--- Color Editor
+//--- Image Editor ---
+themeImageLink.addEventListener("input", () => {
+  reImg.src = themeImageLink.value;
+});
+
+
+//--- Color Editor ---
 // button switching
 function loadColor(btn) {
+  let hex;
   switch (btn) {
     case "background-color":
-      hexColor.value = themes[themeIndex]["--background-color"];
+      hex = themes[themeIndex]["--background-color"]; 
       break;
     case "text-color":
-      hexColor.value = themes[themeIndex]["--text-color"];
+      hex = themes[themeIndex]["--text-color"]; 
       break;
     case "accent-color":
-      hexColor.value = themes[themeIndex]["--accent-color"];
+      hex = themes[themeIndex]["--accent-color"]; 
       break;
     case "accent-color-2":
-      hexColor.value = themes[themeIndex]["--accent-color-2"];
+      hex = themes[themeIndex]["--accent-color-2"]; 
       break;
     case "hover-color":
-      hexColor.value = themes[themeIndex]["--hover-color"];
+      hex = themes[themeIndex]["--hover-color"]; 
       break;
   }
+  // update hex field
+  hexColor.value = hex;
+
+  // sync sliders to this hex
+  const { h, s, l } = hexToHSL(hex);
+  hueSlider.value = h;
+  satSlider.value = s;
+  lightSlider.value = l;
 }
 
 document.querySelectorAll("#theme-colors .color-btn").forEach(colorBtn => {
@@ -200,13 +265,48 @@ document.querySelectorAll("#theme-colors .color-btn").forEach(colorBtn => {
       btn.classList.remove("active")
     );
     colorBtn.classList.add("active");
-    loadColor(getActiveBtn());
+    loadColor(getActiveBtn()); // sets hex + sliders
   });
 });
 
 // get active button
 function getActiveBtn() {
   return document.querySelector("#theme-colors .color-btn.active").id;
+}
+
+// change color base on hex value
+hexColor.addEventListener("input", () => {
+  const activeVar = "--" + getActiveBtn();
+  const hex = hexColor.value;
+
+  themeRe.style.setProperty(activeVar, hex);
+
+  // keep sliders in sync when typing a hex
+  const { h, s, l } = hexToHSL(hex);
+  hueSlider.value = h;
+  satSlider.value = s;
+  lightSlider.value = l;
+});
+
+// Add listeners for HSL sliders
+[hueSlider, satSlider, lightSlider].forEach(slider => {
+  slider.addEventListener("input", updateFromHSL);
+});
+
+// Update hex + preview from sliders
+function updateFromHSL() {
+  const h = parseInt(hueSlider.value || "0", 10);
+  const s = parseInt(satSlider.value || "0", 10);
+  const l = parseInt(lightSlider.value || "0", 10);
+
+  const hex = hslToHex(h, s, l);
+  hexColor.value = hex;
+
+  const activeVar = "--" + getActiveBtn();
+  themeRe.style.setProperty(activeVar, hex);
+
+  const t = themes[themeIndex];
+  if (t && activeVar in t) t[activeVar] = hex;
 }
 
 function saveThemes(themes) {

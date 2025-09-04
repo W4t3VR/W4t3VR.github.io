@@ -399,6 +399,7 @@ input[type="range"]::-ms-thumb {
   display: flex;
   justify-content: center; 
   align-items: center;     
+  background-color: var(--background-color);
 }
 
 #theme-review img {
