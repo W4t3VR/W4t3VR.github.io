@@ -243,7 +243,8 @@ input:focus {
 }
 
 #color-review {
-  width: 100%;
+  flex: 2;
+  min-width: 0;
   padding: 0.5em;
   border: 2px solid var(--accent-color-2);
   display: flex;
@@ -452,6 +453,7 @@ input[type="range"]::-ms-thumb {
 
 #theme-review .review-link li {
   font-size: 1.2em;
+  white-space: nowrap;
   color: var(--text-color);
   cursor: pointer;
 }
