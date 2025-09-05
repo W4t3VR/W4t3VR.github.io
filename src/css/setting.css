@@ -126,7 +126,7 @@
 }
 
 #theme-selector {
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -377,7 +377,7 @@ input[type="range"]::-ms-thumb {
 }
 
 #theme-review {
-  flex: 7;
+  flex: 3;
   border: 2px solid var(--accent-color-2);
   overflow: auto; 
   scrollbar-width: none; 
