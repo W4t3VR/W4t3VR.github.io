@@ -82,6 +82,7 @@ function saveShortcuts(shortcuts) {
 }
 
 function loadShortcuts() {
+  shortcuts = JSON.parse(localStorage.getItem("shortcuts"));
   buildShortcuts(shortcuts);
 }
 

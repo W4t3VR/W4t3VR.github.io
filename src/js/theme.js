@@ -67,7 +67,7 @@ const themeImageLink = document.querySelector("#theme-image-link");
 const prevButn = document.querySelector("#theme-controler .prev");
 const nextButn = document.querySelector("#theme-controler .next");
 const hexColor = document.querySelector("#hex-color");
-const themeRe = document.querySelector("#theme-review");
+const tabTheme = document.querySelector("#tab-themes");
 const reImg = document.querySelector("#review-image");
 const reText = document.querySelector("#review-text");
 
@@ -194,39 +194,10 @@ function hslToHex(h, s, l) {
   return `#${[f(0), f(8), f(4)].map((x) => x.toString(16).padStart(2, "0")).join("")}`;
 }
 
-//--- Theme Controller ----
-function updateTheme() {
-  const theme = themes[themeIndex];
-
-  themeName.value = theme.name;
-  themeImageLink.value = theme.cover;
-  reImg.src = themeImageLink.value;
-
-  // update CSS variables
-  for (const [property, value] of Object.entries(theme)) {
-    if (property.startsWith("--")) {
-      themeRe.style.setProperty(property, value);
-    }
-  }
-
-  loadColor(getActiveBtn());
-}
-
-prevButn.addEventListener("click", () => {
-  themeIndex = (themeIndex - 1 + themes.length) % themes.length;
-  updateTheme();
-});
-
-nextButn.addEventListener("click", () => {
-  themeIndex = (themeIndex + 1) % themes.length;
-  updateTheme();
-});
-
 //--- Image Editor ---
 themeImageLink.addEventListener("input", () => {
   reImg.src = themeImageLink.value;
 });
-
 
 //--- Color Editor ---
 // button switching
@@ -259,27 +230,29 @@ function loadColor(btn) {
   lightSlider.value = l;
 }
 
+// get active button
+function getActiveBtn() {
+  return document.querySelector("#theme-colors .color-btn.active").id;
+}
+
+//set active class for clicked button
 document.querySelectorAll("#theme-colors .color-btn").forEach(colorBtn => {
   colorBtn.addEventListener("click", () => {
     document.querySelectorAll("#theme-colors .color-btn").forEach(btn =>
       btn.classList.remove("active")
     );
     colorBtn.classList.add("active");
-    loadColor(getActiveBtn()); // sets hex + sliders
+    loadColor(getActiveBtn()); // sets hex input + sliders
   });
 });
 
-// get active button
-function getActiveBtn() {
-  return document.querySelector("#theme-colors .color-btn.active").id;
-}
-
-// change color base on hex value
+// change color base on hex value in the input
 hexColor.addEventListener("input", () => {
   const activeVar = "--" + getActiveBtn();
   const hex = hexColor.value;
 
-  themeRe.style.setProperty(activeVar, hex);
+  tabTheme.style.setProperty(activeVar, hex);
+  themes[themeIndex][activeVar] = hex;
 
   // keep sliders in sync when typing a hex
   const { h, s, l } = hexToHSL(hex);
@@ -303,11 +276,70 @@ function updateFromHSL() {
   hexColor.value = hex;
 
   const activeVar = "--" + getActiveBtn();
-  themeRe.style.setProperty(activeVar, hex);
+  tabTheme.style.setProperty(activeVar, hex);
+  themes[themeIndex][activeVar] = hex;
 
   const t = themes[themeIndex];
   if (t && activeVar in t) t[activeVar] = hex;
 }
+
+//--- Theme Controller ----
+function updateTheme() {
+  themeName.value = themes[themeIndex].name;
+  themeImageLink.value = themes[themeIndex].cover;
+  reImg.src = themeImageLink.value;
+
+  // update CSS variables
+  for (const [property, value] of Object.entries(themes[themeIndex])) {
+    if (property.startsWith("--")) {
+      tabTheme.style.setProperty(property, value);
+    }
+  }
+
+  loadColor(getActiveBtn());
+}
+
+// switch theme button
+prevButn.addEventListener("click", () => {
+  themeIndex = (themeIndex - 1 + themes.length) % themes.length;
+  updateTheme();
+});
+
+nextButn.addEventListener("click", () => {
+  themeIndex = (themeIndex + 1) % themes.length;
+  updateTheme();
+});
+
+//--- Add and remove theme
+document.getElementById("add-theme").addEventListener("click", () => {
+  const newTheme = {
+    name: "New Theme",
+    cover: "../src/images/covers/new_cover.png",
+    "--text-color": "#ffffff",
+    "--hover-color": "#aaaaaa",
+    "--accent-color": "#888888",
+    "--accent-color-2": "#666666",
+    "--background-color": "#000000"
+  };
+
+  themes.push(newTheme);          
+  themeIndex = themes.length - 1; 
+  updateTheme();                  
+});
+
+document.getElementById("remove-theme").addEventListener("click", () => {
+  if (themes.length <= 1) {
+    return;
+  }
+  themes.splice(themeIndex, 1); 
+
+  // adjust themeIndex so it doesn’t go out of bounds
+  if (themeIndex >= themes.length) {
+    themeIndex = themes.length - 1;
+  }
+  updateTheme(); 
+  
+});
 
 function saveThemes(themes) {
   localStorage.setItem("themes", JSON.stringify(themes));

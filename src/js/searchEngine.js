@@ -79,7 +79,6 @@ addBtn.addEventListener("click", () => {
     searchEngines[name] = link;
     engineNames = Object.keys(searchEngines);
     engineIndex = engineNames.indexOf(name);
-    console.log(engineIndex, searchEngines, engineNames, name);
     updateEngine();
   }
   else {
@@ -121,6 +120,7 @@ function saveEngineIndex(index) {
 }
 
 function loadSearchEngines() {
+  searchEngines = JSON.parse(localStorage.getItem("searchEngines"));
   updateEngine();
   setMode(mode);
 }
