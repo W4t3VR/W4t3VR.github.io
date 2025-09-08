@@ -594,9 +594,3 @@ input[type="range"]::-ms-thumb {
   cursor: pointer;
   font-size: 1em;
 }
-
-@media screen and (max-width: 1366px) {
-  #theme-review {
-    flex: 5;
-  }
-}
