@@ -342,7 +342,8 @@ document.getElementById("remove-theme").addEventListener("click", () => {
 });
 
 function saveThemes(themes) {
-  updateTheme();
+  themes[themeIndex].name = themeName.value;
+  themes[themeIndex].cover =  themeImageLink.value;
   localStorage.setItem("themes", JSON.stringify(themes));
 }
 
