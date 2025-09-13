@@ -342,6 +342,7 @@ document.getElementById("remove-theme").addEventListener("click", () => {
 });
 
 function saveThemes(themes) {
+  updateTheme();
   localStorage.setItem("themes", JSON.stringify(themes));
 }
 
