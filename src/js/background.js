@@ -3,15 +3,15 @@ const nightSky = document.getElementById("night-sky");
 // ----------------------------
 // Shooting stars
 // ----------------------------
-const numShootingStars = 15; 
+const numShootingStars = 13; 
 const maxTop = window.innerHeight * 0.1;
 
 for (let i = 0; i < numShootingStars; i++) {
     const star = document.createElement("span");
     star.classList.add("shooting-star");
 
-    // random top (within top 10% of screen)
-    star.style.top = Math.floor(Math.random() * maxTop) + "px";
+    // random top
+    star.style.top = -10 + "px";
 
     // spread stars more evenly across screen width
     const cols = window.innerWidth / numShootingStars;
@@ -22,13 +22,38 @@ for (let i = 0; i < numShootingStars; i++) {
 
     // random animation timing
     const duration = (0.5 + Math.random() * 3).toFixed(2) + "s";
-    const delay = 0 + "s";
+    const delay = (0.5 + Math.random() * 3).toFixed(2) + "s";
 
     star.style.setProperty("--duration", duration);
     star.style.setProperty("--delay", delay);
 
     nightSky.appendChild(star);
 }
+
+function createShootingStar(topPercent) {
+    const star = document.createElement("span");
+    star.classList.add("shooting-star");
+
+    // set top position (percentage of viewport height)
+    star.style.top = (window.innerHeight * topPercent) + "px";
+
+    // force it to start near the right edge
+    star.style.right = -10 + "px";
+    star.style.left = "initial";
+
+    // random animation timing
+    const duration = (0.5 + Math.random() * 3).toFixed(2) + "s";
+    const delay = (0.5 + Math.random() * 3).toFixed(2) + "s";
+
+    star.style.setProperty("--duration", duration);
+    star.style.setProperty("--delay", delay);
+
+    nightSky.appendChild(star);
+}
+
+// add a couple of right stars
+createShootingStar(0.60); 
+createShootingStar(0.30); 
 
 // ----------------------------
 // Still stars

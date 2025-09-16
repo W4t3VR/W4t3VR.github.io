@@ -61,6 +61,7 @@ document.getElementById("save").addEventListener("click", () => {
         const parsed = JSON.parse(edited);
         saveLinks(parsed);
         buildLinks(parsed);
+        panel.classList.remove("open");
       } catch (e) {
         alert("Invalid JSON. Please check your edits.");
       }
@@ -73,6 +74,7 @@ document.getElementById("save").addEventListener("click", () => {
       saveEngineIndex(engineIndex);
       saveSearchEngines(searchEngines);
       saveShortcuts(shortcuts);
+      panel.classList.remove("open");
       break;
   }
 });
@@ -90,7 +92,7 @@ document.getElementById("discard").addEventListener("click", () => {
       break;
     case "searchEngines":
       loadSearchEngines();
-    loadShortcuts();
+      loadShortcuts();
       break;
   }
 });
