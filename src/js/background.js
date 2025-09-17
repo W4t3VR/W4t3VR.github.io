@@ -4,33 +4,43 @@ const nightSky = document.getElementById("night-sky");
 // Shooting stars
 // ----------------------------
 const numShootingStars = 13; 
-const maxTop = window.innerHeight * 0.1;
 
-for (let i = 0; i < numShootingStars; i++) {
-    const star = document.createElement("span");
-    star.classList.add("shooting-star");
+function createShootingStar(i) {
+  const star = document.createElement("span");
+  star.classList.add("shooting-star");
 
-    // random top
-    star.style.top = -10 + "px";
+  //top (slightly above viewport)
+  star.style.top = "-10px";
 
-    // spread stars more evenly across screen width
-    const cols = window.innerWidth / numShootingStars;
-    const baseRight = cols * i;
-    const offset = Math.random() * cols;
-    star.style.right = Math.floor(baseRight + offset) + "px";
-    star.style.left = "initial";
+  // spread stars more evenly across screen width
+  const cols = window.innerWidth / numShootingStars;
+  const baseRight = cols * i;
+  const offset = Math.random() * cols;
+  star.style.right = Math.floor(baseRight + offset) + "px";
+  star.style.left = "initial";
 
-    // random animation timing
-    const duration = (0.5 + Math.random() * 3).toFixed(2) + "s";
-    const delay = (0.5 + Math.random() * 3).toFixed(2) + "s";
+  // random animation timing
+  const duration = 0.5 + Math.random() * 4;
+  const delay = 1.5 + Math.random() * 4;
 
-    star.style.setProperty("--duration", duration);
-    star.style.setProperty("--delay", delay);
+  star.style.setProperty("--duration", duration + "s");
+  star.style.setProperty("--delay", delay + "s");
 
-    nightSky.appendChild(star);
+  nightSky.appendChild(star);
+
+  // remove after duration+delay, then respawn
+  setTimeout(() => {
+    star.remove();
+    createShootingStar(i); // respawn star in same "slot" but with new randoms
+  }, (duration + delay) * 1000);
 }
 
-function createShootingStar(topPercent) {
+// spawn initial stars
+for (let i = 0; i < numShootingStars; i++) {
+  createShootingStar(i);
+}
+
+function rightShootingStar(topPercent) {
     const star = document.createElement("span");
     star.classList.add("shooting-star");
 
@@ -42,8 +52,8 @@ function createShootingStar(topPercent) {
     star.style.left = "initial";
 
     // random animation timing
-    const duration = (0.5 + Math.random() * 3).toFixed(2) + "s";
-    const delay = (0.5 + Math.random() * 3).toFixed(2) + "s";
+    const duration = (0.5 + Math.random() * 4).toFixed(2) + "s";
+    const delay = (1.5 + Math.random() * 4).toFixed(2) + "s";
 
     star.style.setProperty("--duration", duration);
     star.style.setProperty("--delay", delay);
@@ -52,8 +62,8 @@ function createShootingStar(topPercent) {
 }
 
 // add a couple of right stars
-createShootingStar(0.60); 
-createShootingStar(0.30); 
+rightShootingStar(0.60); 
+rightShootingStar(0.30); 
 
 // ----------------------------
 // Still stars
