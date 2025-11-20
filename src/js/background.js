@@ -27,12 +27,6 @@ function createShootingStar(i) {
   star.style.setProperty("--delay", delay + "s");
 
   nightSky.appendChild(star);
-
-  // remove after duration+delay, then respawn
-  setTimeout(() => {
-    star.remove();
-    createShootingStar(i); // respawn star in same "slot" but with new randoms
-  }, (duration + delay) * 1000);
 }
 
 // spawn initial stars
