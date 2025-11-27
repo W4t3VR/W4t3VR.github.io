@@ -3,14 +3,11 @@ const nightSky = document.getElementById("night-sky");
 // ----------------------------
 // Shooting stars
 // ----------------------------
-const numShootingStars = 13; 
+const numShootingStars = 10; 
 
 function createShootingStar(i) {
   const star = document.createElement("span");
   star.classList.add("shooting-star");
-
-  //top (slightly above viewport)
-  star.style.top = "-10px";
 
   // spread stars more evenly across screen width
   const cols = window.innerWidth / numShootingStars;
@@ -20,8 +17,8 @@ function createShootingStar(i) {
   star.style.left = "initial";
 
   // random animation timing
-  const duration = 0.5 + Math.random() * 4;
-  const delay = 1.5 + Math.random() * 4;
+  const duration = 2.5 + Math.random() * 5.5;
+  const delay = 2 + Math.random() * 4.5;
 
   star.style.setProperty("--duration", duration + "s");
   star.style.setProperty("--delay", delay + "s");
