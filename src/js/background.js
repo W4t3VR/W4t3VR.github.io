@@ -9,6 +9,9 @@ function createShootingStar(i) {
   const star = document.createElement("span");
   star.classList.add("shooting-star");
 
+  //top (slightly above viewport)
+  star.style.top = "-15px";
+
   // spread stars more evenly across screen width
   const cols = window.innerWidth / numShootingStars;
   const baseRight = cols * i;
@@ -17,8 +20,8 @@ function createShootingStar(i) {
   star.style.left = "initial";
 
   // random animation timing
-  const duration = 2.5 + Math.random() * 5.5;
-  const delay = 2 + Math.random() * 4.5;
+  const duration = 2.5 + Math.random() * 5;
+  const delay = Math.random() * 1.5 + Math.random() * 4.5;
 
   star.style.setProperty("--duration", duration + "s");
   star.style.setProperty("--delay", delay + "s");
